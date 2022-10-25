@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import CourseSammary from '../courseSummery/CourseSammary';
+import CourseSammary from '../../courseSummery/CourseSammary';
 
 const RightSideNav = () => {
 	const [courses, setCourses] = useState([]);
-	// console.log(courses);
+	console.log(courses);
 
 	useEffect(() => {
 		fetch('http://localhost:5000/category/all')

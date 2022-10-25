@@ -26,7 +26,7 @@ const Register = () => {
 							<div className='card-body'>
 								<Card.Title className='text-center'>Register here</Card.Title>
 								<Form className='p-4'>
-									<Form.Group className='mb-3' controlId='formBasicEmail'>
+									<Form.Group className='mb-3' controlId='formBasicName'>
 										<Form.Label>Name</Form.Label>
 										<Form.Control
 											className='b-none'
@@ -34,7 +34,7 @@ const Register = () => {
 											placeholder='Enter Name'
 										/>
 									</Form.Group>
-									<Form.Group className='mb-3' controlId='formBasicEmail'>
+									<Form.Group className='mb-3' controlId='formBasicImageURL'>
 										<Form.Label>Image URL</Form.Label>
 										<Form.Control
 											className='b-none'
@@ -71,7 +71,7 @@ const Register = () => {
 									</Button>
 									<div className=' mt-2 d-flex justify-content-between'>
 										<p>Already have an account? </p>
-										<Link to='/login' className='text-dark'>
+										<Link to='/login' className=' fw-bold text-info'>
 											{' '}
 											Login
 										</Link>

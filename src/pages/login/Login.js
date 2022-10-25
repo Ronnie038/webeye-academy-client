@@ -52,9 +52,9 @@ const Login = () => {
 								>
 									Submit
 								</Button>
-								<div className=' mt-2 d-flex justify-content-between'>
+								<div className=' mt-2 d-flex justify-content-around'>
 									<p>New here? </p>
-									<Link to='/register' className='text-dark'>
+									<Link to='/register' className='text-info fw-bold'>
 										{' '}
 										Register
 									</Link>

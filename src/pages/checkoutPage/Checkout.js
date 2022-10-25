@@ -9,7 +9,7 @@ const Checkout = () => {
 			<div className='card '>
 				<div className='card-header'>
 					<h4>Basic Information</h4>
-					<p className='fw-bold'>Order for : {course.title}</p>
+					<p className='fw-bold text-danger'>Order for : {course.title}</p>
 				</div>
 				<div className='card-body'>
 					<div className='row'>
