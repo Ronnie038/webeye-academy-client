@@ -6,7 +6,6 @@ import { FcGoogle } from 'react-icons/fc';
 import { AiFillGithub } from 'react-icons/ai';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/authProvider/AuthProvider';
-import { toast } from 'react-hot-toast';
 
 const Register = () => {
 	const { createUser, updateUserProfile, varifyEmail } =
@@ -32,7 +31,6 @@ const Register = () => {
 				handleUpdateUserProfile(name, photoURL);
 				handleEmailVarification();
 				navigate('/login');
-				toast.success('please varify your email address  ');
 			})
 			.catch((err) => {
 				setError(err.code);
@@ -46,7 +44,7 @@ const Register = () => {
 		updateUserProfile(profile)
 			.then(() => {})
 			.catch((err) => {
-				console.log(err);
+				setError(err.code);
 			});
 	};
 
@@ -113,7 +111,7 @@ const Register = () => {
 										/>
 									</Form.Group>
 									<Form.Group className='mb-3' controlId='formBasicCheckbox'>
-										<Form.Check type='checkbox' label='Check me out' />
+										<strong className='text-danger'>{error.slice(5)}</strong>
 									</Form.Group>
 									<Button
 										className='w-100 rounded-pill rounded'

@@ -1,27 +1,28 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Header.css';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import logo from './logo.png';
+import { Image } from 'react-bootstrap';
 
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import logo from '../../../assets/logo/logo.png';
+import { FaUser } from 'react-icons/fa';
+
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../../context/authProvider/AuthProvider';
 
 const Header = () => {
+	const { user, logOut } = useContext(AuthContext);
+
 	return (
 		<Navbar
 			collapseOnSelect
 			sticky='top'
 			expand='lg'
 			// bg='light'
-			style={{
-				background: 'rgb(116,126,172)',
-				background:
-					'linear-gradient(0deg, rgba(116,126,172,1) 100%, rgba(16,7,89,1) 100%)',
-			}}
+
 			variant='dark'
-			className='py-4 mb-5'
+			className='py-4 mb-5 shadow-sm'
 		>
 			<Container>
 				<Link to='/home'>
@@ -38,7 +39,7 @@ const Header = () => {
 				</Link>
 				<Navbar.Toggle aria-controls='responsive-navbar-nav' />
 				<Navbar.Collapse id='responsive-navbar-nav'>
-					<Nav className='ms-auto   me-5'>
+					<Nav className='me-auto   ms-5'>
 						<div className=''>
 							<Link
 								to='/courses'
@@ -50,13 +51,30 @@ const Header = () => {
 						</div>
 					</Nav>
 					<Nav>
-						<div className=''>
-							<Link
-								to='/login'
-								className='text-dark fs-5 fw-bold text-secondary'
-							>
-								Login
-							</Link>
+						<div className='text-dark'>
+							{user ? (
+								<Link onClick={logOut} className='text-dark fw-bold'>
+									SignOut
+								</Link>
+							) : (
+								<>
+									<Link to='/login' className='me-3'>
+										Login
+									</Link>
+								</>
+							)}
+							{user?.photoURL ? (
+								<Link to='/profile' className='ms-3'>
+									<Image
+										style={{ height: '40px', width: '40px' }}
+										roundedCircle
+										title={user.displayName}
+										src={user.photoURL}
+									/>
+								</Link>
+							) : (
+								<FaUser />
+							)}
 						</div>
 					</Nav>
 				</Navbar.Collapse>

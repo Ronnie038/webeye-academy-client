@@ -81,7 +81,7 @@ const Login = () => {
 									/>
 								</Form.Group>
 								<Form.Group className='mb-3' controlId='formBasicCheckbox'>
-									<Form.Check type='checkbox' label='Check me out' />
+									<strong className='text-danger'>{error.slice(5)}</strong>
 								</Form.Group>
 								<Button
 									className='w-100 rounded-pill rounded'
