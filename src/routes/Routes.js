@@ -4,7 +4,7 @@ import Main from '../layout/Main';
 // import Course from '../pages/courses/course/Course';
 // import Courses from '../pages/courses/courses/Courses';
 // import Home from '../pages/home/Home';
-// import Login from '../pages/login/Login';
+import Login from '../pages/login/Login';
 // import Register from '../pages/register/Register';
 
 export const routes = createBrowserRouter([
@@ -18,7 +18,7 @@ export const routes = createBrowserRouter([
 			},
 			{
 				path: 'login',
-				// element: <Login />,
+				element: <Login />,
 			},
 			{
 				path: 'register',
