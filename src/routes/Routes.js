@@ -6,6 +6,7 @@ import Courses from '../pages/courses/courses/Courses';
 import Home from '../pages/home/Home';
 import Login from '../pages/login/Login';
 import Register from '../pages/register/Register';
+import PrivateRoute from './privateRoute/PrivateRoute';
 
 export const routes = createBrowserRouter([
 	{
@@ -36,7 +37,11 @@ export const routes = createBrowserRouter([
 			},
 			{
 				path: 'checkout/:id',
-				element: <Checkout />,
+				element: (
+					<PrivateRoute>
+						<Checkout />
+					</PrivateRoute>
+				),
 				loader: ({ params }) =>
 					fetch(`http://localhost:5000/courses/${params.id}`),
 			},
