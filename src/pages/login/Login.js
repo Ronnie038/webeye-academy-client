@@ -13,7 +13,8 @@ import { AuthContext } from '../../context/authProvider/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
-	const { signIn, setLoading, providerLogin } = useContext(AuthContext);
+	const { signIn, setLoading, providerLogin, toggle, toggleDiv } =
+		useContext(AuthContext);
 	const [error, setError] = useState('');
 	const navigate = useNavigate();
 	const location = useLocation();
@@ -64,7 +65,7 @@ const Login = () => {
 	};
 	return (
 		<div
-			className=' w-75  rounded my-5 m-auto b-none'
+			className={`${toggle} w-75  rounded my-5 m-auto b-none`}
 			style={{ backgroundColor: 'white' }}
 		>
 			<div className=' card mb-3'>
@@ -77,7 +78,7 @@ const Login = () => {
 						/>
 					</div>
 					<div className='col-md-7'>
-						<div className='card-body'>
+						<div className={`${toggleDiv} card-body`}>
 							<Card.Title className='text-center'>Login here</Card.Title>
 							<Form onSubmit={handleSubmit} className='p-4'>
 								<Form.Group className='mb-3' controlId='formBasicEmail'>
@@ -127,7 +128,10 @@ const Login = () => {
 										<FcGoogle className='b-none' /> <span>Google</span>
 									</button>
 
-									<button onClick={handleGithubSignIn} className='btn'>
+									<button
+										onClick={handleGithubSignIn}
+										className='btn bg-secondary text-light ms-3'
+									>
 										<AiFillGithub />
 										Github
 									</button>

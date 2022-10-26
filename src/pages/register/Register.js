@@ -9,8 +9,14 @@ import { AuthContext } from '../../context/authProvider/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Register = () => {
-	const { createUser, updateUserProfile, varifyEmail, providerLogin } =
-		useContext(AuthContext);
+	const {
+		createUser,
+		updateUserProfile,
+		varifyEmail,
+		providerLogin,
+		toggle,
+		toggleDiv,
+	} = useContext(AuthContext);
 	const [error, setError] = useState('');
 	const navigate = useNavigate();
 	const location = useLocation();
@@ -77,7 +83,7 @@ const Register = () => {
 	};
 
 	return (
-		<div>
+		<div className={toggle}>
 			<div
 				className=' w-75 rounded-4 my-5 m-auto '
 				style={{ backgroundColor: 'white', overflow: 'hidden' }}
@@ -92,7 +98,7 @@ const Register = () => {
 							/>
 						</div>
 						<div className='col-md-7'>
-							<div className='card-body'>
+							<div className={`card-body ${toggleDiv}`}>
 								<Card.Title className='text-center'>Register here</Card.Title>
 								<Form onSubmit={handleSubmit} className='p-4'>
 									<Form.Group className='mb-3' controlId='formBasicName'>
@@ -160,7 +166,10 @@ const Register = () => {
 											<FcGoogle className='b-none' /> <span>Google</span>
 										</button>
 
-										<button onClick={handleGithubSignIn} className='btn'>
+										<button
+											onClick={handleGithubSignIn}
+											className='btn btn-secondary text-light ms-3'
+										>
 											<AiFillGithub />
 											Github
 										</button>

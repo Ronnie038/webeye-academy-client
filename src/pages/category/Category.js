@@ -6,7 +6,7 @@ const Category = () => {
 	console.log(categories);
 
 	useEffect(() => {
-		fetch('http://localhost:5000/courses-categories')
+		fetch('https://web-eye-academy-server.vercel.app/courses-categories')
 			.then((res) => res.json())
 			.then((data) => setCategory(data));
 	}, []);

@@ -35,7 +35,9 @@ export const routes = createBrowserRouter([
 				path: 'course/:id',
 				element: <Course />,
 				loader: ({ params }) =>
-					fetch(`http://localhost:5000/courses/${params.id}`),
+					fetch(
+						`https://web-eye-academy-server.vercel.app/courses/${params.id}`
+					),
 			},
 			{
 				path: 'checkout/:id',
@@ -45,7 +47,9 @@ export const routes = createBrowserRouter([
 					</PrivateRoute>
 				),
 				loader: ({ params }) =>
-					fetch(`http://localhost:5000/courses/${params.id}`),
+					fetch(
+						`https://web-eye-academy-server.vercel.app/courses/${params.id}`
+					),
 			},
 			{
 				path: '/profile',

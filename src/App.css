@@ -29,6 +29,7 @@ ul {
 	padding: 1rem;
 	color: white;
 	border-radius: 10px;
+	text-align: center;
 }
 
 .light_link {
@@ -68,6 +69,7 @@ ul {
 		rgba(87, 128, 148, 1) 0%,
 		rgba(227, 227, 236, 1) 0%
 	);
+	text-align: center;
 }
 
 .dark_link {

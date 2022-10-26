@@ -15,6 +15,10 @@ const Header = () => {
 	const { user, logOut, themeToggle, setThemeToggle, toggle, toggleDiv } =
 		useContext(AuthContext);
 
+	const active = (isActive) => ({
+		color: isActive ? 'cyan' : 'blue',
+	});
+
 	return (
 		<Navbar
 			collapseOnSelect
@@ -42,22 +46,34 @@ const Header = () => {
 				<Navbar.Collapse id='responsive-navbar-nav'>
 					<Nav className='me-auto   ms-5'>
 						<div className=''>
-							<Link to='/courses' className={` fs-5 fw-bold ${toggle}`}>
+							<NavLink
+								style={active}
+								to='/courses'
+								className={` fs-5 fw-bold ${toggle}`}
+							>
 								{' '}
 								Courses
-							</Link>
+							</NavLink>
 						</div>
 						<div className='ms-3'>
-							<Link to='/blog' className={` fs-5 fw-bold ${toggle}`}>
+							<NavLink
+								style={active}
+								to='/blog'
+								className={` fs-5 fw-bold ${toggle}`}
+							>
 								{' '}
 								Blog
-							</Link>
+							</NavLink>
 						</div>
 						<div className='ms-3'>
-							<Link to='/' className={` fs-5 fw-bold ${toggle}`}>
+							<NavLink
+								style={active}
+								to='/'
+								className={` fs-5 fw-bold ${toggle}`}
+							>
 								{' '}
 								FAQ
-							</Link>
+							</NavLink>
 						</div>
 					</Nav>
 					<Nav>
@@ -74,14 +90,14 @@ const Header = () => {
 								</>
 							)}
 							{user?.photoURL ? (
-								<Link to='/profile' className='ms-3'>
+								<NavLink style={active} to='/profile' className='ms-3'>
 									<Image
 										style={{ height: '40px', width: '40px' }}
 										roundedCircle
 										title={user.displayName}
 										src={user.photoURL}
 									/>
-								</Link>
+								</NavLink>
 							) : (
 								<FaUser />
 							)}
