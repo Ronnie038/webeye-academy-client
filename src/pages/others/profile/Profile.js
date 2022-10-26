@@ -12,7 +12,7 @@ import { toast } from 'react-hot-toast';
 const Profile = () => {
 	const { user, updateUserProfile, logOut, toggleDiv, toggle } =
 		useContext(AuthContext);
-	console.log(user);
+
 	const [show, setShow] = useState(false);
 	const [error, setError] = useState('');
 	const [checkoutInput, setCheckoutInput] = useState({
@@ -22,8 +22,6 @@ const Profile = () => {
 		phone: '',
 		email: user?.email,
 	});
-	console.log(checkoutInput.email);
-	// console.log(checkoutInput.photoURL, checkoutInput.name);
 
 	const handleInput = (e) => {
 		e.preventDefault();

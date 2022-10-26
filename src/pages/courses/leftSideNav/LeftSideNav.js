@@ -5,10 +5,9 @@ import { AuthContext } from '../../../context/authProvider/AuthProvider';
 const LeftSideNav = () => {
 	const [categories, setCategory] = useState([]);
 	const { toggle, toggleLink, toggleLinkDiv } = useContext(AuthContext);
-	// console.log(categories);
 
 	useEffect(() => {
-		fetch('http://localhost:5000/courses-categories')
+		fetch('https://web-eye-academy-server.vercel.app/courses-categories')
 			.then((res) => res.json())
 			.then((data) => setCategory(data));
 	}, []);

@@ -59,6 +59,14 @@ export const routes = createBrowserRouter([
 				path: '/blog',
 				element: <Blog />,
 			},
+			{
+				path: '*',
+				element: <div className='text-danger text-center'>404 page</div>,
+			},
 		],
+	},
+	{
+		path: '*',
+		element: <div className='text-danger text-center'>404 page</div>,
 	},
 ]);

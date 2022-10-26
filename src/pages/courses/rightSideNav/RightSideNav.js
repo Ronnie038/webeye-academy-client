@@ -3,10 +3,9 @@ import CourseSammary from '../../courseSummery/CourseSammary';
 
 const RightSideNav = () => {
 	const [courses, setCourses] = useState([]);
-	console.log(courses);
 
 	useEffect(() => {
-		fetch('http://localhost:5000/category/all')
+		fetch('https://web-eye-academy-server.vercel.app/category/all')
 			.then((res) => res.json())
 			.then((data) => setCourses(data));
 	}, []);

@@ -65,7 +65,7 @@ const Checkout = () => {
 									name='lastname'
 									onChange={handleInput}
 									value={checkoutInput.lastname}
-									placeholder='list name'
+									placeholder='last name'
 									className='form-control'
 								/>
 							</div>

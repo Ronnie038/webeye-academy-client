@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 const Category = () => {
 	const [categories, setCategory] = useState([]);
-	console.log(categories);
 
 	useEffect(() => {
 		fetch('https://web-eye-academy-server.vercel.app/courses-categories')

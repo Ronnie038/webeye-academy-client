@@ -7,6 +7,7 @@ import { AiFillGithub } from 'react-icons/ai';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/authProvider/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import toast from 'react-hot-toast';
 
 const Register = () => {
 	const {
@@ -59,7 +60,9 @@ const Register = () => {
 
 	const handleEmailVarification = () => {
 		varifyEmail()
-			.then(() => {})
+			.then(() => {
+				toast('email varification message sent pleas check your email');
+			})
 			.catch((err) => console.error(err));
 	};
 
@@ -68,7 +71,6 @@ const Register = () => {
 	const handleGoogleSignIn = () => {
 		providerLogin(gogleAuthProvider)
 			.then((result) => {
-				console.log(result.user);
 				navigate(from, { replace: true });
 			})
 			.catch((eror) => console.error(eror));
@@ -76,7 +78,6 @@ const Register = () => {
 	const handleGithubSignIn = () => {
 		providerLogin(new GithubAuthProvider())
 			.then((result) => {
-				console.log(result.user);
 				navigate(from, { replace: true });
 			})
 			.catch((eror) => console.error(eror));
@@ -108,6 +109,7 @@ const Register = () => {
 											name='name'
 											type='text'
 											placeholder='Enter Name'
+											required
 										/>
 									</Form.Group>
 									<Form.Group className='mb-3' controlId='formBasicImageURL'>
@@ -117,6 +119,7 @@ const Register = () => {
 											type='text'
 											name='image_url'
 											placeholder='img url'
+											required
 										/>
 									</Form.Group>
 									<Form.Group className='mb-3' controlId='formBasicEmail'>
@@ -126,6 +129,7 @@ const Register = () => {
 											type='email'
 											name='email'
 											placeholder='Enter email'
+											required
 										/>
 									</Form.Group>
 
@@ -136,6 +140,7 @@ const Register = () => {
 											type='password'
 											name='password'
 											placeholder='Password'
+											required
 										/>
 									</Form.Group>
 									<Form.Group className='mb-3' controlId='formBasicCheckbox'>
