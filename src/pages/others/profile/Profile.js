@@ -10,7 +10,9 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 
 const Profile = () => {
-	const { user, updateUserProfile, logOut } = useContext(AuthContext);
+	const { user, updateUserProfile, logOut, toggleDiv, toggle } =
+		useContext(AuthContext);
+	console.log(user);
 	const [show, setShow] = useState(false);
 	const [error, setError] = useState('');
 	const [checkoutInput, setCheckoutInput] = useState({
@@ -20,7 +22,8 @@ const Profile = () => {
 		phone: '',
 		email: user?.email,
 	});
-	console.log(checkoutInput.photoURL, checkoutInput.name);
+	console.log(checkoutInput.email);
+	// console.log(checkoutInput.photoURL, checkoutInput.name);
 
 	const handleInput = (e) => {
 		e.preventDefault();
@@ -52,6 +55,7 @@ const Profile = () => {
 			.then(() => {
 				toast.success('you have successfully updated Your profile');
 				navigate('/profile');
+				handleClose(true);
 			})
 			.catch((error) => setError(error.code));
 	};
@@ -61,7 +65,9 @@ const Profile = () => {
 
 	return (
 		<div>
-			<div className='position-relative mx-auto responsive rounded p-5 bg-info'>
+			<div
+				className={`${toggleDiv} position-relative mx-auto responsive rounded p-5 `}
+			>
 				<Image
 					style={{ height: '40px', width: '40px' }}
 					roundedCircle
@@ -122,15 +128,6 @@ const Profile = () => {
 								/>
 							</Form.Group>
 
-							{/* <Form.Group className='mb-3' controlId='formBasicPassword'>
-								<Form.Label>Password</Form.Label>
-								<Form.Control
-									className='border-bottom'
-									type='password'
-									name='password'
-									placeholder='Password'
-								/>
-							</Form.Group> */}
 							<Form.Group className='mb-3' controlId='formBasicCheckbox'>
 								<small className='text-danger'>{error}</small>
 							</Form.Group>
@@ -143,12 +140,6 @@ const Profile = () => {
 							</Button>
 						</Form>
 					</Modal.Body>
-					{/* <Modal.Footer>
-						<Button variant='secondary' onClick={handleClose}>
-							Close
-						</Button>
-						<Button variant='primary'>Understood</Button>
-					</Modal.Footer> */}
 				</Modal>
 			</div>
 		</div>

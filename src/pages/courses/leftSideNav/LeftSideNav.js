@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../context/authProvider/AuthProvider';
 
 const LeftSideNav = () => {
 	const [categories, setCategory] = useState([]);
+	const { toggle, toggleLink, toggleLinkDiv } = useContext(AuthContext);
 	// console.log(categories);
 
 	useEffect(() => {
@@ -11,12 +13,12 @@ const LeftSideNav = () => {
 			.then((data) => setCategory(data));
 	}, []);
 	return (
-		<div>
+		<div className={`${toggleLinkDiv}`}>
 			<h4>All Courses listed below </h4>
 			<ul>
 				{categories.map((category) => (
 					<Link key={category.id} to={`/course/${category.id}`}>
-						<li>{category.name}</li>
+						<li className={`${toggle} ${toggleLink}`}>{category.name}</li>
 					</Link>
 				))}
 			</ul>

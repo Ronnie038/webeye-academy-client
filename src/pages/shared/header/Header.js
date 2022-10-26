@@ -12,7 +12,8 @@ import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../context/authProvider/AuthProvider';
 
 const Header = () => {
-	const { user, logOut } = useContext(AuthContext);
+	const { user, logOut, themeToggle, setThemeToggle, toggle, toggleDiv } =
+		useContext(AuthContext);
 
 	return (
 		<Navbar
@@ -22,11 +23,11 @@ const Header = () => {
 			// bg='light'
 
 			variant='dark'
-			className='py-4 mb-5 shadow-sm'
+			className={`py-4 mb-5 shadow-sm ${toggleDiv}`}
 		>
-			<Container>
-				<Link to='/home'>
-					<h4 className='text-dark'>
+			<Container className={`${toggle}`}>
+				<Link to='/'>
+					<h4 className={toggle}>
 						<img
 							src={logo}
 							alt='logo'
@@ -41,24 +42,21 @@ const Header = () => {
 				<Navbar.Collapse id='responsive-navbar-nav'>
 					<Nav className='me-auto   ms-5'>
 						<div className=''>
-							<Link
-								to='/courses'
-								className='text-dark fs-5 fw-bold text-secondary'
-							>
+							<Link to='/courses' className={` fs-5 fw-bold ${toggle}`}>
 								{' '}
 								Courses
 							</Link>
 						</div>
 					</Nav>
 					<Nav>
-						<div className='text-dark'>
+						<div className=''>
 							{user ? (
-								<Link onClick={logOut} className='text-dark fw-bold'>
+								<Link onClick={logOut} className={`${toggle} fw-bold`}>
 									SignOut
 								</Link>
 							) : (
 								<>
-									<Link to='/login' className='me-3'>
+									<Link to='/login' className={`me-3 ${toggle}`}>
 										Login
 									</Link>
 								</>
@@ -76,6 +74,20 @@ const Header = () => {
 								<FaUser />
 							)}
 						</div>
+						<button
+							onClick={() => setThemeToggle(!themeToggle)}
+							className='btn'
+						>
+							{themeToggle ? (
+								<span className='bg-dark rounded-circle text-light p-2'>
+									dark
+								</span>
+							) : (
+								<span className='bg-light text-dark rounded-circle p-2'>
+									light
+								</span>
+							)}
+						</button>
 					</Nav>
 				</Navbar.Collapse>
 			</Container>

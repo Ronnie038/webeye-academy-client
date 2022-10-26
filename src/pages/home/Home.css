@@ -1,0 +1,27 @@
+.home {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.light_blue_div {
+	background-color: rgb(40, 45, 92);
+}
+.dark_blue_div {
+	background: rgb(87, 115, 148);
+	background: linear-gradient(
+		0deg,
+		rgba(87, 115, 148, 1) 0%,
+		rgba(97, 15, 207, 1) 0%
+	);
+
+	padding: 1rem;
+	border-radius: 30px;
+	font-weight: bold;
+	color: si;
+}

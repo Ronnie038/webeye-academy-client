@@ -5,7 +5,7 @@ import { toast } from 'react-hot-toast';
 
 const Checkout = () => {
 	const course = useLoaderData();
-	const { user } = useContext(AuthContext);
+	const { user, toggle, toggleDiv } = useContext(AuthContext);
 	const [error, setError] = useState([]);
 	const [checkoutInput, setCheckoutInput] = useState({
 		firstname: user?.displayName,
@@ -30,13 +30,14 @@ const Checkout = () => {
 	};
 
 	return (
-		<div className='responsive mx-auto'>
-			<div className='card '>
-				<div className='card-header'>
+		<div className={`responsive mx-auto ${toggle}`}>
+			<div className={`card ${toggleDiv}`}>
+				<div className={`card-body ${toggleDiv}`}>
+					<span></span>
 					<h4>Basic Information</h4>
 					<p className='fw-bold text-danger'>Order for : {course.title}</p>
 				</div>
-				<div className='card-body'>
+				<div className={`card-body ${toggleDiv}`}>
 					<form onSubmit={handleSubmit} className='row'>
 						<div className='col-md-6'>
 							<div className='form-group mb-3'>
@@ -47,6 +48,7 @@ const Checkout = () => {
 									onChange={handleInput}
 									value={checkoutInput.firstname}
 									required
+									placeholder='first name'
 									className='form-control'
 								/>
 								<small className='text-danger'>{error.firstname}</small>
@@ -61,6 +63,7 @@ const Checkout = () => {
 									name='lastname'
 									onChange={handleInput}
 									value={checkoutInput.lastname}
+									placeholder='list name'
 									className='form-control'
 								/>
 							</div>
@@ -74,6 +77,7 @@ const Checkout = () => {
 									name='phone'
 									onChange={handleInput}
 									value={checkoutInput.phone}
+									placeholder='phone'
 									className='form-control'
 								/>
 							</div>
@@ -86,8 +90,9 @@ const Checkout = () => {
 									type='email'
 									onChange={handleInput}
 									value={checkoutInput.email}
+									placeholder='email'
 									name='email'
-									className='form-control'
+									className='form-control text-dark'
 								/>
 							</div>
 						</div>
@@ -101,6 +106,7 @@ const Checkout = () => {
 									className='form-control'
 									onChange={handleInput}
 									value={checkoutInput.address}
+									placeholder='address'
 								></textarea>
 							</div>
 						</div>
@@ -114,6 +120,7 @@ const Checkout = () => {
 									onChange={handleInput}
 									value={checkoutInput.city}
 									className='form-control'
+									placeholder='city'
 								/>
 							</div>
 						</div>
@@ -127,6 +134,7 @@ const Checkout = () => {
 									value={checkoutInput.state}
 									name='state'
 									className='form-control'
+									placeholder='state'
 								/>
 							</div>
 						</div>
@@ -140,6 +148,7 @@ const Checkout = () => {
 									value={checkoutInput.zipcode}
 									name='zipcode'
 									className='form-control'
+									placeholder='zip code'
 								/>
 							</div>
 						</div>

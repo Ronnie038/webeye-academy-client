@@ -4,14 +4,17 @@ import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
 import { FcGoogle } from 'react-icons/fc';
 import { AiFillGithub } from 'react-icons/ai';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/authProvider/AuthProvider';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Register = () => {
-	const { createUser, updateUserProfile, varifyEmail } =
+	const { createUser, updateUserProfile, varifyEmail, providerLogin } =
 		useContext(AuthContext);
 	const [error, setError] = useState('');
 	const navigate = useNavigate();
+	const location = useLocation();
+	const from = location.state?.from?.pathname || '/';
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
@@ -52,6 +55,25 @@ const Register = () => {
 		varifyEmail()
 			.then(() => {})
 			.catch((err) => console.error(err));
+	};
+
+	const gogleAuthProvider = new GoogleAuthProvider();
+
+	const handleGoogleSignIn = () => {
+		providerLogin(gogleAuthProvider)
+			.then((result) => {
+				console.log(result.user);
+				navigate(from, { replace: true });
+			})
+			.catch((eror) => console.error(eror));
+	};
+	const handleGithubSignIn = () => {
+		providerLogin(new GithubAuthProvider())
+			.then((result) => {
+				console.log(result.user);
+				navigate(from, { replace: true });
+			})
+			.catch((eror) => console.error(eror));
 	};
 
 	return (
@@ -131,11 +153,14 @@ const Register = () => {
 										<hr />
 										<p>Or</p>
 										<p>Sign up with</p>
-										<button className='btn btn-secondary'>
+										<button
+											onClick={handleGoogleSignIn}
+											className='btn btn-secondary'
+										>
 											<FcGoogle className='b-none' /> <span>Google</span>
 										</button>
 
-										<button className='btn'>
+										<button onClick={handleGithubSignIn} className='btn'>
 											<AiFillGithub />
 											Github
 										</button>

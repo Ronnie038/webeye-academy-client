@@ -18,6 +18,12 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
 	const [user, setUser] = useState(null);
 	const [loading, setLoading] = useState(true);
+	const [themeToggle, setThemeToggle] = useState(false);
+
+	const toggle = themeToggle ? 'dark' : 'light';
+	const toggleDiv = themeToggle ? 'dark_div' : 'light_div';
+	const toggleLink = themeToggle ? 'dark_link' : 'light_link';
+	const toggleLinkDiv = themeToggle ? 'dark_link_div' : 'light_link_div';
 
 	const providerLogin = (provider) => {
 		return signInWithPopup(auth, provider);
@@ -46,9 +52,7 @@ const AuthProvider = ({ children }) => {
 
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, (curUser) => {
-			// if (curUser === null || curUser.emailVerified) {
 			setUser(curUser);
-			// }
 			setLoading(false);
 		});
 
@@ -65,6 +69,12 @@ const AuthProvider = ({ children }) => {
 		updateUserProfile,
 		varifyEmail,
 		logOut,
+		themeToggle,
+		setThemeToggle,
+		toggle,
+		toggleDiv,
+		toggleLink,
+		toggleLinkDiv,
 	};
 
 	return (
