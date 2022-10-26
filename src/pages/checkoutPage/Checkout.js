@@ -32,8 +32,10 @@ const Checkout = () => {
 	return (
 		<div className={`responsive mx-auto ${toggle}`}>
 			<div className={`card ${toggleDiv}`}>
-				<div className={`card-body ${toggleDiv}`}>
-					<span></span>
+				<div className={`card-body position-relative ${toggleDiv}`}>
+					<span className='position-absolute end-0 me-5 p-2 bg-warning rounded text-dark'>
+						{course.price}
+					</span>
 					<h4>Basic Information</h4>
 					<p className='fw-bold text-danger'>Order for : {course.title}</p>
 				</div>

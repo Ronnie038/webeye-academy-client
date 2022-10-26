@@ -13,7 +13,7 @@ const Home = () => {
 		<div className={`home ${toggleDiv} ${toggle}`}>
 			<Container>
 				<Row className='mt-5'>
-					<Col>
+					<Col xs={{ order: 'last', span: '12' }} md={{ span: '6' }}>
 						<div className={themeToggle ? 'light_blue_div' : 'dark_blue_div'}>
 							<h3 className={toggle}>welcome to webEye academy</h3>
 							<p>
@@ -29,7 +29,7 @@ const Home = () => {
 							</Link>
 						</div>
 					</Col>
-					<Col>
+					<Col md={{ order: 'last' }} xs>
 						{' '}
 						<Carousel>
 							<Carousel.Item interval={5000}>

@@ -47,6 +47,18 @@ const Header = () => {
 								Courses
 							</Link>
 						</div>
+						<div className='ms-3'>
+							<Link to='/blog' className={` fs-5 fw-bold ${toggle}`}>
+								{' '}
+								Blog
+							</Link>
+						</div>
+						<div className='ms-3'>
+							<Link to='/' className={` fs-5 fw-bold ${toggle}`}>
+								{' '}
+								FAQ
+							</Link>
+						</div>
 					</Nav>
 					<Nav>
 						<div className=''>

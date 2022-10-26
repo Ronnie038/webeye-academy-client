@@ -5,12 +5,12 @@ import { initializeApp } from 'firebase/app';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-	apiKey: 'AIzaSyDDHL00uWHfBq_VbE7IcL6J_rR0qT2hO8Q',
-	authDomain: 'web-eye-academy.firebaseapp.com',
-	projectId: 'web-eye-academy',
-	storageBucket: 'web-eye-academy.appspot.com',
-	messagingSenderId: '872253128670',
-	appId: '1:872253128670:web:4537a247a06eeef2f4a74f',
+	apiKey: process.env.REACT_APP_apiKey,
+	authDomain: process.env.REACT_APP_authDomain,
+	projectId: process.env.REACT_APP_projectId,
+	storageBucket: process.env.REACT_APP_storageBucket,
+	messagingSenderId: process.env.REACT_APP_messagingSenderId,
+	appId: process.env.REACT_APP_appId,
 };
 
 // Initialize Firebase

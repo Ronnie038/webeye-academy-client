@@ -11,6 +11,10 @@
 
 .light_blue_div {
 	background-color: rgb(40, 45, 92);
+	padding: 1rem;
+	border-radius: 30px;
+	font-weight: bold;
+	color: si;
 }
 .dark_blue_div {
 	background: rgb(87, 115, 148);
