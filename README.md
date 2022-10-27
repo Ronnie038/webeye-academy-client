@@ -1,8 +1,12 @@
-1. site name = WebEye Academy
+# Project name
 
-2. live site = https://web-eye-academy.web.app/
+site name = WebEye Academy
 
-Functionality
+# live site
+
+website link = https://web-eye-academy.web.app/
+
+# Functionality
 
 1. this site is mobile responsive
 2. it has firebase authentication with email and password ,google and github
@@ -12,7 +16,7 @@ Functionality
 6. also user can verify email from mailbox or spam messages
 7. also you can download pdf file about course. from course details page top of the detail card
 
-Technologies
+# Technologies
 
 1. rect bootstrap
 2. react hot toast
