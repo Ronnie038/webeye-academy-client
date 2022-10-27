@@ -159,6 +159,7 @@ const Checkout = () => {
 								<button type='submit' className='btn btn-primary mx-1'>
 									Place Order
 								</button>
+								<button className='btn btn-primary mx-1'>Cancel Order</button>
 							</div>
 						</div>
 					</form>

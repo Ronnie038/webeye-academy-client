@@ -79,12 +79,18 @@ const Header = () => {
 					<Nav>
 						<div className=''>
 							{user ? (
-								<Link onClick={logOut} className={`${toggle} fw-bold`}>
+								<Link
+									onClick={logOut}
+									className={`${toggle} p-2 fw-bold bg-danger rounded-pill`}
+								>
 									SignOut
 								</Link>
 							) : (
 								<>
-									<Link to='/login' className={`me-3 ${toggle}`}>
+									<Link
+										to='/login'
+										className={`me-3 bg-info p-2 px-3 rounded-pill ${toggle}`}
+									>
 										Login
 									</Link>
 								</>
@@ -101,21 +107,21 @@ const Header = () => {
 							) : (
 								<FaUser />
 							)}
+							<div
+								onClick={() => setThemeToggle(!themeToggle)}
+								className='py-3 px-4  rounded-pill toggle_btn'
+								style={{ width: '8px', height: '3px' }}
+							>
+								{themeToggle ? (
+									<div className='dark_toggle'></div>
+								) : (
+									<div
+										// style={{ width: '3px', height: '3px' }}
+										className='light_toggle'
+									></div>
+								)}
+							</div>
 						</div>
-						<button
-							onClick={() => setThemeToggle(!themeToggle)}
-							className='btn'
-						>
-							{themeToggle ? (
-								<span className='bg-dark rounded-circle text-light p-2'>
-									dark
-								</span>
-							) : (
-								<span className='bg-light text-dark rounded-circle p-2'>
-									light
-								</span>
-							)}
-						</button>
 					</Nav>
 				</Navbar.Collapse>
 			</Container>

@@ -2,3 +2,30 @@ a {
 	text-decoration: none;
 	color: black;
 }
+.toggle_btn {
+	width: 15px;
+	height: 10px;
+	position: absolute;
+
+	border: 1px solid rgb(95, 183, 255);
+	display: inline-block;
+	border-radius: 40%;
+	margin-left: 10px;
+}
+
+.dark_toggle {
+	position: absolute;
+	padding: 10px;
+	background-color: black;
+	border-radius: 50%;
+	top: 20%;
+	right: 0;
+}
+.light_toggle {
+	position: absolute;
+	padding: 10px;
+	background-color: white;
+	border-radius: 50%;
+	left: 0;
+	bottom: 20%;
+}
