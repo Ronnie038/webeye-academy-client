@@ -3,7 +3,15 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { AuthContext } from '../../../context/authProvider/AuthProvider';
-import { FaLocationArrow, FaMale, FaPhone, FaVoicemail } from 'react-icons/fa';
+import {
+	FaFacebook,
+	FaGithub,
+	FaGoogle,
+	FaLocationArrow,
+	FaMale,
+	FaPhone,
+	FaVoicemail,
+} from 'react-icons/fa';
 
 const Footer = () => {
 	const { toggle, toggleDiv, themeToggle } = useContext(AuthContext);
@@ -43,13 +51,20 @@ const Footer = () => {
 						<img
 							src='https://images.unsplash.com/photo-1661956601030-fdfb9c7e9e2f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=400&q=60'
 							alt=''
-							className='img-fluid w-50 rounded-2'
+							className='img-fluid w-25 rounded-2'
 						/>
 					</Col>
 				</Row>
 				<Row>
 					<Col xs={12}>
 						<p className='text-center mt-3'>copyright ©️ 2022 WebEye-academy</p>
+					</Col>
+				</Row>
+				<Row>
+					<Col xs={12} className='text-center '>
+						<FaGoogle className='mx-3 fs-2 text-danger' />
+						<FaFacebook className='mx-3 fs-2' />
+						<FaGithub className='mx-3 fs-2' />
 					</Col>
 				</Row>
 			</Container>
