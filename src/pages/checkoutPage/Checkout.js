@@ -29,6 +29,11 @@ const Checkout = () => {
 		navigate('/courses');
 	};
 
+	const handleCancel = () => {
+		toast.error('you have successfully cancel the purches');
+		navigate('/courses');
+	};
+
 	return (
 		<div className={`responsive mx-auto ${toggle}`}>
 			<div className={`card ${toggleDiv}`}>
@@ -159,7 +164,9 @@ const Checkout = () => {
 								<button type='submit' className='btn btn-primary mx-1'>
 									Place Order
 								</button>
-								<button className='btn btn-primary mx-1'>Cancel Order</button>
+								<button onClick={handleCancel} className='btn btn-danger mx-1'>
+									Cancel Order
+								</button>
 							</div>
 						</div>
 					</form>

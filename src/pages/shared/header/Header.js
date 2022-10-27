@@ -98,7 +98,7 @@ const Header = () => {
 							{user?.photoURL ? (
 								<NavLink style={active} to='/profile' className='ms-3'>
 									<Image
-										style={{ height: '40px', width: '40px' }}
+										style={{ height: '50px', width: '50px' }}
 										roundedCircle
 										title={user.displayName}
 										src={user.photoURL}

@@ -6,11 +6,11 @@ a {
 	width: 15px;
 	height: 10px;
 	position: absolute;
-
+	right: 40%;
 	border: 1px solid rgb(95, 183, 255);
 	display: inline-block;
-	border-radius: 40%;
-	margin-left: 10px;
+	border-radius: 35%;
+	margin-top: 5px;
 }
 
 .dark_toggle {
