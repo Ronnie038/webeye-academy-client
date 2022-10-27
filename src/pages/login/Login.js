@@ -65,19 +65,19 @@ const Login = () => {
 	};
 	return (
 		<div
-			className={`${toggle} w-75  rounded my-5 m-auto b-none`}
+			className={`${toggle}  login_div   rounded my-5 m-auto b-none`}
 			style={{ backgroundColor: 'white' }}
 		>
 			<div className=' card mb-3'>
-				<div className='row g-0'>
+				<div className='row div_responsive g-0'>
 					<div className='col-md-5'>
 						<img
 							src='https://images.unsplash.com/photo-1572294846914-4b5092cf5fff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'
-							className='img-fluid   rounded-start '
+							className=' img-fluid h-100   rounded-start '
 							alt='...'
 						/>
 					</div>
-					<div className='col-md-7'>
+					<div className={`col-md-7 ${toggleDiv}`}>
 						<div className={`${toggleDiv} card-body`}>
 							<Card.Title className='text-center'>Login here</Card.Title>
 							<Form onSubmit={handleSubmit} className='p-4'>

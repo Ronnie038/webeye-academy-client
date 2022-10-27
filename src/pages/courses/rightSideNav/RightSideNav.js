@@ -13,7 +13,7 @@ const RightSideNav = () => {
 		<div className='container text-center'>
 			<div className='row '>
 				{courses.map((course) => (
-					<div key={course._id} className='col col-md-6'>
+					<div key={course._id} className='col col-md-6 col-12'>
 						<CourseSammary course={course} />
 					</div>
 				))}

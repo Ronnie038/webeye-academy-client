@@ -84,9 +84,9 @@ const Register = () => {
 	};
 
 	return (
-		<div className={toggle}>
+		<div className={`login_div mx-auto ${toggle}`}>
 			<div
-				className=' w-75 rounded-4 my-5 m-auto '
+				className=' w-75  rounded-4 my-5 m-auto '
 				style={{ backgroundColor: 'white', overflow: 'hidden' }}
 			>
 				<div className='card mb-3' style={{ border: 'none' }}>
@@ -98,7 +98,7 @@ const Register = () => {
 								alt='...'
 							/>
 						</div>
-						<div className='col-md-7'>
+						<div className={`col-md-7 ${toggleDiv}`}>
 							<div className={`card-body ${toggleDiv}`}>
 								<Card.Title className='text-center'>Register here</Card.Title>
 								<Form onSubmit={handleSubmit} className='p-4'>

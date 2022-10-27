@@ -11,7 +11,7 @@ const Courses = () => {
 		<div>
 			<Container>
 				<Row className='justify-content-md-center'>
-					<Col xs lg='4'>
+					<Col xs={12} lg='4'>
 						<LeftSideNav />
 					</Col>
 

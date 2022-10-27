@@ -92,3 +92,46 @@ ul {
 	margin-bottom: 20px;
 	color: rgb(153, 168, 233);
 }
+
+.light_blue_footer {
+	background-color: rgb(40, 45, 92);
+	padding: 1rem;
+	/* border-radius: 30px; */
+	font-weight: bold;
+	color: white;
+}
+.dark_blue_footer {
+	background: rgb(87, 115, 148);
+	background: linear-gradient(
+		0deg,
+		rgba(87, 115, 148, 1) 0%,
+		rgba(97, 15, 207, 1) 0%
+	);
+
+	padding: 1rem;
+	/* border-radius: 30px; */
+	font-weight: bold;
+	color: white;
+}
+
+/* .div_responsive {
+	background-color: red;
+	height: 500px;
+} */
+
+@media only screen and (min-width: 768px) {
+	.login_div {
+		width: 75%;
+	}
+}
+@media only screen and (max-width: 768px) {
+	.login_div {
+		width: 90%;
+	}
+}
+
+@media only screen and (min-width: 1200px) {
+	.login_div {
+		width: 50%;
+	}
+}

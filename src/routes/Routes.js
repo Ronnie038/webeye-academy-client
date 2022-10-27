@@ -1,8 +1,8 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, Link } from 'react-router-dom';
 import Main from '../layout/Main';
 import Blog from '../pages/blog/Blog';
 import Checkout from '../pages/checkoutPage/Checkout';
-import Course from '../pages/courses/course/Course';
+import Course from '../pages/courses/courseDetails/CourseDetails';
 import Courses from '../pages/courses/courses/Courses';
 import Home from '../pages/home/Home';
 import Login from '../pages/login/Login';
@@ -14,9 +14,18 @@ export const routes = createBrowserRouter([
 	{
 		path: '/',
 		element: <Main />,
+		errorElement: (
+			<div className='text-danger min-vh-100 flex-column d-flex align-items-center justify-content-center'>
+				<h1> 404 not found</h1>
+				<br />
+				<Link to='../' className='text-light pointer-event border-bottom'>
+					go Home
+				</Link>
+			</div>
+		),
 		children: [
 			{
-				index: true,
+				path: '/',
 				element: <Home />,
 			},
 			{
@@ -59,14 +68,6 @@ export const routes = createBrowserRouter([
 				path: '/blog',
 				element: <Blog />,
 			},
-			{
-				path: '*',
-				element: <div className='text-danger text-center'>404 page</div>,
-			},
 		],
-	},
-	{
-		path: '*',
-		element: <div className='text-danger text-center'>404 page</div>,
 	},
 ]);
