@@ -15,7 +15,7 @@ const Footer = () => {
 			} p-4 mt-5`}
 			style={{ zIndex: '100' }}
 		>
-			<Container className='text-start'>
+			<Container className='text-center text-md-start'>
 				<Row>
 					<Col>
 						<ul>
